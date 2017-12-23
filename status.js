@@ -7,9 +7,14 @@ class Status
 		this.statusDiv = document.getElementById("status");
 	}
 
+	scrollDown() {
+		this.statusDiv.scrollTop = this.statusDiv.scrollHeight;
+	}
+
 	write(message) {
 		var text = document.createTextNode(message);
 		this.statusDiv.appendChild(text);
+		this.scrollDown();
 	}
 
 	writeLine(message) {

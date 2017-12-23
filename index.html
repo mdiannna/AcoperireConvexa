@@ -1,28 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="style.css">
+
 </head>
 <body>
-<h1 class="text-center">Acoperirea convexa</h1>
-<div>
-<canvas id="myCanvas" width="900" height="500" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML5 canvas tag.</canvas>	
-</div>
 
-<div id="status">
-	<h2 class="text-center">Status</h2>
-</div>
-<button onclick="connectDots()">Connect the dots</button>
-<button onclick="stepAlgorithm()">step</button>
-<button onclick="reset()">Reset</button>
+	<h1 class="text-center">Acoperirea convexa</h1>
+	
+
+	<div class="col-md-8">
+	<canvas id="myCanvas" width="950" height="500" style="border:1px solid #d3d3d3;">
+	Your browser does not support the HTML5 canvas tag.</canvas>	
+	</div>
+
+		<div id="status">
+			<h2 class="text-center">Status</h2>
+		</div>		
+
+	<button id="connectDots" onclick="connectDots()">Connect the dots</button>
+	<button id="stepAlgorithm" onclick="stepAlgorithm()">step</button>
+	<button id="reset" onclick="reset()">Reset</button>
 
 
 </body>
-	<script src="status.js"></script>
-	<script src="general.js"></script>
-	<!-- <script src="graham.js"></script> -->
-	<script src="GUI.js"></script>
+<script src="status.js"></script>
+<script src="general.js"></script>
+<!-- <script src="graham.js"></script> -->
+<script src="GUI.js"></script>
 
 
 </html>
