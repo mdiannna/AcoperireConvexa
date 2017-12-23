@@ -64,6 +64,7 @@ function connectDots() {
 	updateStatus("Starting to connect the dots...")
 	document.getElementById("stepAlgorithm").setAttribute("disabled", "true");
 	document.getElementById("connectDots").setAttribute("disabled", "true");
+	document.getElementById("randomPoint").setAttribute("disabled", "true");
 
 	var i = setInterval(function(){
 		stepAlgorithm();
@@ -81,4 +82,14 @@ function connectDots() {
 
 function reset() {
 	location.reload();
+}
+
+function randomPoint() {
+	var x = Math.floor(Math.random() * 940 + 10)
+	var y = Math.floor(Math.random() * 490 + 10)
+	ctx.fillRect( x, y, 5, 5);
+	var P = new Point(x, y);
+	P.showValues();
+
+	vectorPuncte.push(P);
 }

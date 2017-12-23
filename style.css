@@ -23,3 +23,8 @@ h1 {
 	top: 20px;
 	overflow-y: scroll;
 }
+
+#randomPoint {
+	float:right; 
+	margin-right: 330px;
+}
