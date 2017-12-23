@@ -21,3 +21,9 @@ function printVectorPuncte() {
 	}
 	
 }
+
+// Exemplu:
+// var P = new Point(3, 4);
+// P.showValues();
+
+// vectorPuncte.push(P);
