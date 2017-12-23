@@ -73,7 +73,7 @@ function connectDots() {
 
 	    if(counter === nrSteps || nrSteps == 0) {
 	        clearInterval(i);
-			updateStatus("Dots connected.")
+			updateStatus("Dots connected. Done.")
 			// document.getElementById("stepAlgorithm").removeAttribute("disabled");
 	    }
 	}, interval);
