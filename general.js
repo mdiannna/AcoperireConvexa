@@ -11,6 +11,14 @@ class Point {
 		console.log("x:" + this.x +"  y:" + this.y);
 		updateStatus("x:" + this.x +"  y:" + this.y + "\n");
 	}
+
+	getX() {
+		return this.x;
+	}
+
+	getY() {
+		return this.y;
+	}
 }
 
 
