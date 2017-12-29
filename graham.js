@@ -1,47 +1,15 @@
-alert("Graham's scan!");
-console.log("lalalala");
-
-class Point {
-	constructor(x=0, y=0) {
-		this.x = x;
-		this.y = y;
-	}
-
-	showValues() {
-		alert("x:" + this.x +"  y:" + this.y);
-	}
-
-	
-
-}
-
-/*
-var P = new Point();
-P.showValues();
-
-var vectorPuncte = [];
-
-var P = new Point(5,4);
-P.showValues();
-alert(P.x);
-
-vectorPuncte.push(P);
-
-alert("x:" + vectorPuncte[0].x + "   y:" +vectorPuncte[0].y );
-*/
-
-function swap(Point A, Point B) {
-	Point aux;
+function swap(A, B) {
+	var aux;
 	aux = A;
 	A = B;
 	B = aux;
 }
 
-function dist(Point A, Point B) {
+function dist(A, B) {
 	return (A.getX() - B.getX()) * (A.getX() - B.getX()) + (A.getY() - B.getY()) * (A.getY() - B.getY());
 }
 
-function orientation(Point A, Point B, Point C) {
+function orientation(A, B, C) {
 	var val = (B.getY() - A.getY()) * (C.getX() - B.getX()) - (B.getX() - A.getX()) * (C.getY() - B.getY());
 	if(val == 0)return 0;
 	return val > 0? 1:2;
@@ -49,14 +17,17 @@ function orientation(Point A, Point B, Point C) {
 
 var P0 = new Point;
 
-function compare(Point A, Point B) {
+function compare(A, B) {
 	var o = orientation(P0, A, B);
 	if(o == 0) 
-		return (dist(P0, B) >= dist(p0, A))? -1:1;
+		return (dist(P0, B) >= dist(P0, A))? -1:1;
 	return (o == 2)? -1:1;
 }
 
 function convex() {
+	updateStatus("Algorithm:");
+	updateStatus("----------------");
+
 	var ymin = vectorPuncte[0].getY();
 	var min = 0;
 	for (var i = 0; i < vectorPuncte.length; i++) {
@@ -74,8 +45,11 @@ function convex() {
 	var hull = [];
 
 	hull.push(vectorPuncte[0]);
+	updateStatus("Add point (" + vectorPuncte[0].x + ", " + vectorPuncte[0].y + ")");
 	hull.push(vectorPuncte[1]);
+	updateStatus("Add point (" + vectorPuncte[1].x + ", " + vectorPuncte[1].y + ")");
 	hull.push(vectorPuncte[2]);
+	updateStatus("Add point (" + vectorPuncte[2].x + ", " + vectorPuncte[2].y + ")");
 
 	var puncte = [];
 
@@ -97,8 +71,17 @@ function convex() {
 		for (var i = 3; i < m; i++) {
 			while(orientation(hull[hull.length - 2], hull[hull.length - 1], puncte[i]) != 2) {
 				hull.pop();
+				updateStatus("Delete point (" + puncte[i].x + ", " + puncte[i].y + ")");
 			}
 			hull.push(vectorPuncte[i]);
+			updateStatus("Add point (" + vectorPuncte[i].x + ", " + vectorPuncte[i].y + ")");
+
 		}
 	}
+
+	hull.push(hull[0]);
+	updateStatus("Algorithm done");
+
+
+	return hull;
 }

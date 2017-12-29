@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
@@ -15,21 +14,20 @@
 	Your browser does not support the HTML5 canvas tag.</canvas>	
 	</div>
 
-		<div id="status">
-			<h2 class="text-center">Status</h2>
-		</div>		
-	<button id="connectDots" onclick="connectDots()">Connect the dots</button>
+	<div id="status">
+		<h2 class="text-center">Status</h2>
+	</div>		
+	
+	<button id="connectDots" onclick="algorithm()">Connect the points</button>
 	<button id="stepAlgorithm" onclick="stepAlgorithm()">step</button>
 	<button id="reset" onclick="reset()">Reset</button>
 	<button id="randomPoint" onclick="randomPoint()">Generate random point</button>
-
-
+	<button id="exportPoints" onclick="exportPoints()">Export points</button>
 
 </body>
 <script src="status.js"></script>
 <script src="general.js"></script>
-<!-- <script src="graham.js"></script> -->
+<script src="graham.js"></script>
 <script src="GUI.js"></script>
-
 
 </html>

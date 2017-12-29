@@ -22,62 +22,60 @@ function connectTwoPoints(p1, p2)
 }
 
 
-currentVectorPos = 0;
+var currentVectorPos;
 
-function stepAlgorithm() 
+function stepAlgorithm(hull) 
 {
-	if(currentVectorPos == vectorPuncte.length-1) {
-		connectTwoPoints(vectorPuncte[currentVectorPos], vectorPuncte[0]);
-		updateStatus("Connect points" + "(" + vectorPuncte[currentVectorPos].x + ", " 
-				+ vectorPuncte[currentVectorPos].y + ")    <->    "
-				+ "(" + vectorPuncte[0].x + ", " 
-				+ vectorPuncte[0].y + ")");
-	} 
-	if (currentVectorPos < vectorPuncte.length-1){
-		connectTwoPoints(vectorPuncte[currentVectorPos], vectorPuncte[currentVectorPos+1]);
-		updateStatus("Connect points" + "(" + vectorPuncte[currentVectorPos].x + ", " 
-				+ vectorPuncte[currentVectorPos].y + ")    <->    " 
-				+ "(" + vectorPuncte[currentVectorPos+1].x + ", " 
-				+ vectorPuncte[currentVectorPos+1].y + ")");
+	if (currentVectorPos < hull.length-1){
+		connectTwoPoints(hull[currentVectorPos], hull[currentVectorPos+1]);
+		updateStatus("Connect points" + "(" + hull[currentVectorPos].x + ", " 
+				+ hull[currentVectorPos].y + ")    <->    " 
+				+ "(" + hull[currentVectorPos+1].x + ", " 
+				+ hull[currentVectorPos+1].y + ")");
 	}
 	currentVectorPos++;
 
-	if (currentVectorPos > vectorPuncte.length) {
+	if (currentVectorPos > hull.length) {
 		currentVectorPos=0;
 	}
 
 }
 
-function connectDots() {
 
-	var interval = 500;
-	var counter = 0
-	var nrSteps = vectorPuncte.length;
-
-	if (nrSteps == 0) {
-		alert("No points to connect");	
-		return;
-	}
-
-	printVectorPuncte();
+function algorithm() {
+	currentVectorPos = 0;
+	initHull();
+	updateStatus("----------------");
+	var hull = convex();
+	updateStatus("----------------\n");
 
 	updateStatus("Starting to connect the dots...")
+	drawHull(hull);
+	updateStatus("Dots connected. Done.")
+
+}
+
+function initHull() {
 	document.getElementById("stepAlgorithm").setAttribute("disabled", "true");
 	document.getElementById("connectDots").setAttribute("disabled", "true");
 	document.getElementById("randomPoint").setAttribute("disabled", "true");
+}
+
+function drawHull(hull) {
+	var interval = 500;
+	var counter = 0
+	var nrSteps = hull.length;
 
 	var i = setInterval(function(){
-		stepAlgorithm();
+		stepAlgorithm(hull);
 
 	    counter++;
 
 	    if(counter === nrSteps || nrSteps == 0) {
 	        clearInterval(i);
 			updateStatus("Dots connected. Done.")
-			// document.getElementById("stepAlgorithm").removeAttribute("disabled");
 	    }
 	}, interval);
-
 }
 
 function reset() {
@@ -93,3 +91,13 @@ function randomPoint() {
 
 	vectorPuncte.push(P);
 }
+
+
+function exportPoints() {
+		var text = '';
+		for(var i=0; i<vectorPuncte.length; i++) {
+			text += "(" + vectorPuncte[i].x + ", " + vectorPuncte[i].y + ") ";
+		}		
+		updateStatus("Export points:");
+		updateStatus(text);
+	}
