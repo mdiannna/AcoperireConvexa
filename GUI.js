@@ -55,7 +55,7 @@ function algorithm() {
 }
 
 function initHull() {
-	document.getElementById("stepAlgorithm").setAttribute("disabled", "true");
+	// document.getElementById("stepAlgorithm").setAttribute("disabled", "true");
 	document.getElementById("connectDots").setAttribute("disabled", "true");
 	document.getElementById("randomPoint").setAttribute("disabled", "true");
 }
