@@ -51,7 +51,6 @@ function algorithm() {
 
 	updateStatus("Starting to connect the dots...")
 	drawHull(hull);
-	updateStatus("Dots connected. Done.")
 
 }
 
