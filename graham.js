@@ -1,10 +1,3 @@
-function swap(A, B) {
-	var aux;
-	aux = A;
-	A = B;
-	B = aux;
-}
-
 function dist(A, B) {
 	return (A.getX() - B.getX()) * (A.getX() - B.getX()) + (A.getY() - B.getY()) * (A.getY() - B.getY());
 }
@@ -37,7 +30,12 @@ function convex() {
 			min = i;
 		}
 	}
-	swap(vectorPuncte[0], vectorPuncte[min]);
+
+	// Swap vectorPuncte[0] with vectorPuncte[min]
+	var aux = vectorPuncte[0];
+	vectorPuncte[0] = vectorPuncte[min];
+	vectorPuncte[min] = aux;
+	
 	P0 = vectorPuncte[0];
 	
 	vectorPuncte.sort(compare);
@@ -59,7 +57,7 @@ function convex() {
 
 	var m = 1;
 	for (var i = 1; i < vectorPuncte.length; i++) {
-		while(i < vectorPuncte.length - 1 && orientation(P0, puncte[i], puncte[i + 1]) == 0) {
+		while(i < vectorPuncte.length - 1 && orientation(P0, puncte[i], puncte[i + 1]) != 2) {
 			i++;
 		}
 

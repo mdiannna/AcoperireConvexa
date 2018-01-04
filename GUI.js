@@ -49,7 +49,7 @@ function algorithm() {
 	var hull = convex();
 	updateStatus("----------------\n");
 
-	updateStatus("Starting to connect the dots...")
+	updateStatus("Starting to connect the points...")
 	drawHull(hull);
 
 }
@@ -72,7 +72,7 @@ function drawHull(hull) {
 
 	    if(counter === nrSteps || nrSteps == 0) {
 	        clearInterval(i);
-			updateStatus("Dots connected. Done.")
+			updateStatus("Points connected. Algorithm done.")
 	    }
 	}, interval);
 }
