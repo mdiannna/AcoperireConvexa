@@ -57,7 +57,8 @@ function algorithm() {
 	initHull();
 	updateStatus("----------------");
 
-	var hull = convex();
+	var hull;
+	hull = convex();
 	updateStatus("----------------\n");
 
 	updateStatus("Starting to connect the points...")

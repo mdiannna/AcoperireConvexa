@@ -48,11 +48,15 @@ function convex() {
 	var hull = [];
 
 	hull.push(vectorPuncte[0]);
-	updateStatus("Add point (" + vectorPuncte[0].x + ", " + vectorPuncte[0].y + ")");
-	hull.push(vectorPuncte[1]);
-	updateStatus("Add point (" + vectorPuncte[1].x + ", " + vectorPuncte[1].y + ")");
-	hull.push(vectorPuncte[2]);
-	updateStatus("Add point (" + vectorPuncte[2].x + ", " + vectorPuncte[2].y + ")");
+	updateStatus("Add point (" + vectorPuncte[0].getX() + ", " + vectorPuncte[0].getY() + ")");
+	if ( vectorPuncte.length >1) {
+		hull.push(vectorPuncte[1]);
+		updateStatus("Add point (" + vectorPuncte[1].getX() + ", " + vectorPuncte[1].getY() + ")");
+	}
+	if ( vectorPuncte.length >2) {
+		hull.push(vectorPuncte[2]);
+		updateStatus("Add point (" + vectorPuncte[2].getX() + ", " + vectorPuncte[2].getY() + ")");
+	}
 
 	var puncte = [];
 
@@ -74,15 +78,17 @@ function convex() {
 		for (var i = 3; i < m; i++) {
 			while(orientation(hull[hull.length - 2], hull[hull.length - 1], puncte[i]) != 2) {
 				hull.pop();
-				updateStatus("Delete point (" + puncte[i].x + ", " + puncte[i].y + ")");
+				updateStatus("Delete point (" + puncte[i].getX() + ", " + puncte[i].getY() + ")");
 			}
 			hull.push(vectorPuncte[i]);
-			updateStatus("Add point (" + vectorPuncte[i].x + ", " + vectorPuncte[i].y + ")");
+			updateStatus("Add point (" + vectorPuncte[i].getX() + ", " + vectorPuncte[i].getY() + ")");
 
 		}
 	}
 
-	hull.push(hull[0]);
+	if(vectorPuncte.length>2) {
+		hull.push(hull[0]);
+	}
 	updateStatus("Algorithm done");
 
 
