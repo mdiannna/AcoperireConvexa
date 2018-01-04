@@ -77,8 +77,9 @@ function convex() {
 	if(m >= 4) {
 		for (var i = 3; i < m; i++) {
 			while(orientation(hull[hull.length - 2], hull[hull.length - 1], puncte[i]) != 2) {
+				updateStatus("Delete point (" + hull[hull.length-1].getX() + ", " + hull[hull.length-1].getY() + ")");
 				hull.pop();
-				updateStatus("Delete point (" + puncte[i].getX() + ", " + puncte[i].getY() + ")");
+	
 			}
 			hull.push(vectorPuncte[i]);
 			updateStatus("Add point (" + vectorPuncte[i].getX() + ", " + vectorPuncte[i].getY() + ")");
