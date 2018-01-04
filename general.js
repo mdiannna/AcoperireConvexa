@@ -23,15 +23,17 @@ class Point {
 
 
 function printVectorPuncte() {
-	for(var i=0; i<vectorPuncte.length-1; i++) {
-		updateStatusInline("(" + vectorPuncte[i].x + ", " 
-			+ vectorPuncte[i].y + "), " );	
+	for(var i=0; i<vectorPuncte.length; i++) {
+		updateStatus("(" + vectorPuncte[i].getX() + ", " 
+			+ vectorPuncte[i].getY() + "), " );	
 	}
 	
 }
 
-// Exemplu:
-// var P = new Point(3, 4);
-// P.showValues();
-
-// vectorPuncte.push(P);
+Array.prototype.indexOf = function(elem) {
+    for (var i = 0; i < this.length; i++){
+        if ((this[i].getX() == elem.getX()) && (this[i].getY() == elem.getY()))
+            return i;
+    }
+    return -1;
+}

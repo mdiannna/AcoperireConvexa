@@ -17,6 +17,11 @@ function compare(A, B) {
 	return (o == 2)? -1:1;
 }
 
+// function removeDuplicateUsingSet(arr){
+//     let unique_array = Array.from(new Set(arr));
+//     return unique_array;
+// }
+
 function convex() {
 	updateStatus("Algorithm:");
 	updateStatus("----------------");
@@ -35,7 +40,7 @@ function convex() {
 	var aux = vectorPuncte[0];
 	vectorPuncte[0] = vectorPuncte[min];
 	vectorPuncte[min] = aux;
-	
+
 	P0 = vectorPuncte[0];
 	
 	vectorPuncte.sort(compare);
@@ -57,7 +62,7 @@ function convex() {
 
 	var m = 1;
 	for (var i = 1; i < vectorPuncte.length; i++) {
-		while(i < vectorPuncte.length - 1 && orientation(P0, puncte[i], puncte[i + 1]) != 2) {
+		while(i < vectorPuncte.length - 1 && orientation(P0, puncte[i], puncte[i + 1]) == 0) {
 			i++;
 		}
 

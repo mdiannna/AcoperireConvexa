@@ -7,15 +7,21 @@ canvas.onclick = function(){
 	var x = event.clientX-this.offsetLeft+window.pageXOffset;
 	var y = event.clientY-this.offsetTop+window.pageYOffset;
 	ctx.fillRect( x, y, 5, 5);
+
 	var P = new Point(x, y);
 	P.showValues();
 
-	vectorPuncte.push(P);
+	if (vectorPuncte.indexOf(P) == -1) {
+		vectorPuncte.push(P);
+	}
 }
 
 
 function connectTwoPoints(p1, p2)
 {
+	if(p1.x==p2.x && p1.y==p2.y) {
+		return;
+	}
 	ctx.moveTo(p1.x, p1.y);
 	ctx.lineTo(p2.x, p2.y);
 	ctx.stroke();
@@ -44,8 +50,13 @@ function stepAlgorithm(hull)
 
 function algorithm() {
 	currentVectorPos = 0;
+	updateStatus("");
+	
+	// printVectorPuncte();
+
 	initHull();
 	updateStatus("----------------");
+
 	var hull = convex();
 	updateStatus("----------------\n");
 
@@ -88,7 +99,9 @@ function randomPoint() {
 	var P = new Point(x, y);
 	P.showValues();
 
-	vectorPuncte.push(P);
+	if (vectorPuncte.indexOf(P) == -1) {
+		vectorPuncte.push(P);
+	}
 }
 
 
