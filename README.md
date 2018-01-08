@@ -1,8 +1,6 @@
 # AcoperireConvexa (Convex Hull)
 ## RO
-Proiectul la geometrie pentru facultate.
-
-Determinarea acoperirii convexe a unui poligon cu ajutorul algoritmului Graham's scan.
+Determinarea acoperirii convexe a unui poligon cu ajutorul algoritmului Graham's scan. (Proiectul la geometrie pentru facultate)
 
 Proiect creat cu JavaScript, HTML si CSS.
 
